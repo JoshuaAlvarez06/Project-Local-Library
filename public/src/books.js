@@ -8,10 +8,10 @@ function findBookById(books, id) {
 
 function partitionBooksByBorrowedStatus(books) {
   let booksReturned = books.filter((book) =>
-    book["borrows"].every((borrow) => borrow.returned === true)
+    book.borrows.every((borrow) => borrow.returned === true)
   );
   let booksNotReturned = books.filter((book) =>
-    book["borrows"].some((borrow) => borrow.returned === false)
+    book.borrows.some((borrow) => borrow.returned === false)
   );
   return [booksNotReturned, booksReturned];
 }
