@@ -16,7 +16,7 @@ function getBooksBorrowedCount(books) {
 }
 
 //HELPER FUNCTION USED IN NEXT 3 FUNCTIONS
-function giveTopFive(array) {
+function _giveTopFive(array) {
   return array.slice(0, 5);
 }
 
@@ -34,14 +34,14 @@ function getMostCommonGenres(books) {
       });
     }
   }
-  return giveTopFive(mostCommon).sort((bookA, bookB) => bookB.count - bookA.count);
+  return _giveTopFive(mostCommon).sort((bookA, bookB) => bookB.count - bookA.count);
 }
 
 function getMostPopularBooks(books) {
   const mostPopular = [];
   books.sort((bookA, bookB) => bookB.borrows.length - bookA.borrows.length).forEach((book) =>
     mostPopular.push({ name: book.title, count: book.borrows.length }));
-  return giveTopFive(mostPopular);
+  return _giveTopFive(mostPopular);
 }
 
 
@@ -66,7 +66,7 @@ function getMostPopularAuthors(books, authors) {
     //Sort the list from highest count to lowest count.
     list.sort((authorA, authorB) => authorB.count - authorA.count);
     //Show only the top 5 authors
-    const result = giveTopFive(list);
+    const result = _giveTopFive(list);
   return result;
 }
 
